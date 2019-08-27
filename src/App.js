@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import './App.css';
 import Letter from './Letter'
+import RestartButton from './RestartButton'
 
-
+const PHRASES = ["pendu", "test", "salut", "open", "classroom", "entrainement"];
 
 class App extends Component {
 
-
+  
   constructor(props) {
     super(props)
-    const PHRASES = ["pendu", "test", "salut", "open", "classroom", "entrainement"];
 
     this.state = {
       phrase: PHRASES[Math.floor(Math.random()*PHRASES.length)],
@@ -27,12 +27,21 @@ class App extends Component {
     )
   }
 
+  restartGame = () => {
+    this.setState({
+      phrase: PHRASES[Math.floor(Math.random()*PHRASES.length)],
+      firstHalfAlphabet: ("abcdefghijklm").split(""),
+      secondHalfAlphabet: ("nopqrstuvwxyz").split(""),
+      usedLetters: "",
+      count: 0,
+    })
+  }
+
   handleLetterClick = (letter) => {
-    console.log(this.state.count)
     this.setState({
       usedLetters: `${this.state.usedLetters}${letter}`,
       count: this.state.count + 1
-    })
+    }) 
   }
 
   won = (phrase) => {
@@ -62,7 +71,7 @@ class App extends Component {
           </div>
         </div>
         <div>
-          <h1 className="win">{this.won(this.computeDisplay(this.state.phrase, this.state.usedLetters)) && "Bravo ! Vous avez gagné"}</h1>
+          <h1 className="win">{this.won(this.computeDisplay(this.state.phrase, this.state.usedLetters)) && <div>Vous avez gagné!<p><RestartButton onClick={this.restartGame}/></p></div>}</h1>
         </div>
       </div>
     );
