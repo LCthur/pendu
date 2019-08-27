@@ -6,11 +6,13 @@ import Letter from './Letter'
 
 class App extends Component {
 
+
   constructor(props) {
     super(props)
+    const PHRASES = ["pendu", "test", "salut", "open", "classroom", "entrainement"];
 
     this.state = {
-      phrase: "pendu",
+      phrase: PHRASES[Math.floor(Math.random()*PHRASES.length)],
       firstHalfAlphabet: ("abcdefghijklm").split(""),
       secondHalfAlphabet: ("nopqrstuvwxyz").split(""),
       usedLetters: "",
@@ -60,7 +62,7 @@ class App extends Component {
           </div>
         </div>
         <div>
-          <h1>{this.won(this.computeDisplay(this.state.phrase, this.state.usedLetters)) && "Bravo ! Vous avez gagné"}</h1>
+          <h1 className="win">{this.won(this.computeDisplay(this.state.phrase, this.state.usedLetters)) && "Bravo ! Vous avez gagné"}</h1>
         </div>
       </div>
     );

@@ -2,7 +2,7 @@ body {
     font-family: 'Courier New', Courier, monospace;
 }
 
-.alphabet, .title, .display {
+.alphabet, .title, .display, .win {
     text-align: center;
 }
 
@@ -17,3 +17,4 @@ body {
 .alphabet button:focus {
     outline: 0;
 }
+
