@@ -1,0 +1,19 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.alphabet, .title, .display {
+    text-align: center;
+}
+
+.alphabet button {
+    font-size: 30px;
+    margin: 5px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.alphabet button:focus {
+    outline: 0;
+}
