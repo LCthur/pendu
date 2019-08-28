@@ -6,7 +6,7 @@ body {
     text-align: center;
 }
 
-.alphabet button {
+.not-clicked {
     font-size: 30px;
     margin: 5px;
     height: 50px;
@@ -18,3 +18,11 @@ body {
     outline: 0;
 }
 
+.clicked {
+    font-size: 30px;
+    margin: 5px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 1px solid red;
+}

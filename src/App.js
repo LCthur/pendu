@@ -3,7 +3,7 @@ import './App.css';
 import Letter from './Letter'
 import RestartButton from './RestartButton'
 
-const PHRASES = ["pendu", "test", "salut", "open", "classroom", "entrainement"];
+const PHRASES = ["pendu", "test", "open", "classroom", "entrainement"];
 
 class App extends Component {
 
@@ -61,17 +61,17 @@ class App extends Component {
         <div className="alphabet">
           <div>
             {this.state.firstHalfAlphabet.map((letter) => 
-              <Letter letter={letter} key={letter} onClick={this.handleLetterClick} />
+              <Letter className={this.state.usedLetters.includes(letter) ? "clicked" : "not-clicked"} letter={letter} key={letter} onClick={this.handleLetterClick} />
             )}
           </div>
           <div>
             {this.state.secondHalfAlphabet.map((letter) => 
-              <Letter letter={letter} key={letter} onClick={this.handleLetterClick} />
+              <Letter className={this.state.usedLetters.includes(letter) ? "clicked" : "not-clicked"} letter={letter} key={letter} onClick={this.handleLetterClick} />
             )}
           </div>
         </div>
         <div>
-          <h1 className="win">{this.won(this.computeDisplay(this.state.phrase, this.state.usedLetters)) && <div>Vous avez gagné!<p><RestartButton onClick={this.restartGame}/></p></div>}</h1>
+          <h1 className="win">{this.won(this.computeDisplay(this.state.phrase, this.state.usedLetters)) && <div>Bravo ! Vous avez gagné en {this.state.count} coups<p><RestartButton onClick={this.restartGame}/></p></div>}</h1>
         </div>
       </div>
     );
